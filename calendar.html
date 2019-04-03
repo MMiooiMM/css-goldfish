@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <style>
+    .wrap {
+      width: 960px;
+      margin: auto;
+      padding: 30px 0;
+    }
+
+    ul {
+      font-size: 0px;
+    }
+
+    li {
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      background-color: #fff;
+      border: 1px solid #aaa;
+      margin: 4px 4px;
+      font-size: 24px;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    .title {
+      display: flex;
+      padding: 20px 10px;
+    }
+
+    .title h3 {
+      font-size: 36px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .calender {
+      width: 420px;
+      margin: auto;
+      border: 1px solid #000;
+    }
+
+    .holiday {
+      background-color: #f00;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="wrap">
+      <div class="calender">
+        <div class="title">
+          <button v-on:click="SubMonth">{{'<<'}}</button>
+          <h3>{{ message }}</h3>
+          <button v-on:click="AddMonth">{{'>>'}}</button>
+        </div>
+        <ul>
+          <li v-for="item in weekitems">
+            {{item}}
+          </li>
+          <li v-for="(item, index) in items" v-bind:class="{ holiday: IsHoliday(item, index) }">
+            {{item}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data: {
+        message: '',
+        date: null,
+        items: [],
+        weekitems: ['日', '一', '二', '三', '四', '五', '六']
+      },
+      methods: {
+        AddMonth: function () {
+          this.date.setMonth(this.date.getMonth() + 1)
+          this.MakeCalendar(this.date)
+        },
+        SubMonth: function () {
+          this.date.setMonth(this.date.getMonth() - 1)
+          this.MakeCalendar(this.date)
+        },
+        MakeCalendar: function (date) {
+          this.message = `${date.getFullYear()} / ${(date.getMonth() + 1 + "").padStart(2, "0")}`
+          let firstday = new Date(date.getFullYear(), date.getMonth(), 1).getDay()
+          let totaldays = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
+          this.items = []
+          for (let i = 0; i < firstday; i++) {
+            this.items.push('　')
+          }
+          for (let i = 1; i <= totaldays; i++) {
+            this.items.push(i)
+          }
+          for (let i = this.items.length; i < 42; i++) {
+            this.items.push('　')
+          }
+        },
+        IsHoliday: function (item, index) {
+          if (item == '　')
+            return false
+          else {
+            if (index % 7 == 0 || index % 7 == 6)
+              return true
+            else
+              return false
+          }
+        }
+      },
+      mounted() {
+        this.date = new Date()
+        this.MakeCalendar(this.date)
+      },
+    })
+  </script>
+</body>
+
+</html>
