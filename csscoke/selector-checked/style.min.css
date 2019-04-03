@@ -1,0 +1,28 @@
+.panel-control { position: absolute; opacity: 0; }
+
+.tab-group label { display: inline-block; padding: 10px 30px; border: 1px solid #ccc; border-bottom: none; background-color: #ccc; bottom: -1px; position: relative; }
+
+.content-group { border: 1px solid #ccc; padding: 20px; }
+
+.content-group > .content { display: none; }
+
+#radio5:checked ~ .tab-group [for="radio5"] { background-color: #fff; }
+
+#radio5:checked ~ .content-group .content5 { display: block; }
+
+#radio4:checked ~ .tab-group [for="radio4"] { background-color: #fff; }
+
+#radio4:checked ~ .content-group .content4 { display: block; }
+
+#radio3:checked ~ .tab-group [for="radio3"] { background-color: #fff; }
+
+#radio3:checked ~ .content-group .content3 { display: block; }
+
+#radio2:checked ~ .tab-group [for="radio2"] { background-color: #fff; }
+
+#radio2:checked ~ .content-group .content2 { display: block; }
+
+#radio1:checked ~ .tab-group [for="radio1"] { background-color: #fff; }
+
+#radio1:checked ~ .content-group .content1 { display: block; }
+/*# sourceMappingURL=style.min.css.map */
