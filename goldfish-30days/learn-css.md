@@ -66,9 +66,7 @@ CSS Reset :
 
 網頁兩大特性：block, inline
 
-block 占據一整列
-
-h1, p, div
+block 占據一整列，h1, p, div 等
 
 inline 會跟其他物件排在一起
 
@@ -107,6 +105,26 @@ inline-block 會有字跟字之間的距離，可以將上層 font-size 設成 0
 1. 從資料中抽離，在資料原本所在的位置，fixed 固定在視窗，而 Absolute 只定一次
 
 2. left, top 等位置依照父層位置判斷，若父層不是 fixed, relative, Absolute 其中一種定位則繼續往上找，直到視窗。
+
+### Transition 動畫
+
+`transition: 屬性 轉換時間 延遲執行時間 速度;`
+
+### Animation 動畫
+
+Animation: 動畫名稱 播放時間 延遲執行的時間 速度 次數 方向 填充模式 播放狀態;
+
+動畫名稱需要由 @keyframes 事先編寫劇本。
+
+次數可設無限為 infinite
+
+方向可設來回為 alternate
+
+### media 媒體
+
+@media screen and (條件){CSS樣式}
+
+需注意加上`<meta name="viewport" content="width=device-width, initial-scale=1.0">`，否則有些媒體在計算解析度的寬度時會不一樣。
 
 ### 常見問題
 
