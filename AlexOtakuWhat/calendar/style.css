@@ -1,0 +1,60 @@
+[v-cloak] {
+  display: none;
+}
+
+html {
+  text-align: center;
+}
+
+.calendar {
+  margin: 30px 0;
+}
+
+.weekDay,
+.week {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+.weekDay>div {
+  flex: 1 1 0%;
+  line-height: 30px;
+}
+
+.week {
+  border-right: 1px solid #ddd;
+}
+
+.week>div {
+  position: relative;
+  flex: 1 1 0%;
+  height: 90px;
+  line-height: 30px;
+  border-left: 1px solid #ddd;
+}
+
+.week>div:before {
+  position: absolute;
+  content: attr(data-date);
+  top: 0;
+  right: 0;
+  display: block;
+  width: 30px;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.holiday:before {
+  color: #fff;
+  background-color: #c00;
+}
+
+.today:before {
+  color: #fff;
+  background-color: #000;
+}
+
+.other {
+  color: #bbb;
+  background-color: #ddd;
+}

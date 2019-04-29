@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <h1>{{calendar.year}} 年 {{calendar.month+1}} 月</h1>
+    <div>
+      <button @click="adjustYear(-1)">上一年</button>
+      <button @click="adjustMonth(-1)">上個月</button>
+      <button @click="setToday">今天</button>
+      <button @click="adjustMonth(1)">下個月</button>
+      <button @click="adjustYear(1)">下一年</button>
+    </div>
+    <div class="calendar">
+      <div class="weekDay">
+        <div>日</div>
+        <div>一</div>
+        <div>二</div>
+        <div>三</div>
+        <div>四</div>
+        <div>五</div>
+        <div>六</div>
+      </div>
+      <div class="week" v-for="i in 6">
+        <div class="day" v-for="j in 7" :data-date="calendarMonth[(i-1)*7+j-1].date" :class="{ 
+          today: isToday(i, j),
+          holiday: isHoliday(i, j),
+          other: isOther(i, j)
+          }">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
