@@ -60,7 +60,63 @@ CSS Reset :
 
 ### flex 彈性盒子(神器)
 
+學習資源: https://flexboxfroggy.com/
 
+`display: flex`
+
+flex 使用時，若子元素的寬度是由內容產出，可能會造成個別寬度不一，設定過寬的寬度讓 flex 自動調整。
+
+#### 項目對齊
+
+**justify-content** 定義項目水平對齊容器中的位置
+
+**align-items** 定義項目垂直對齊容器中的位置
+
+**algin-self** 定義單一項目的 **align-items** 方法
+
+**align-content** 定義多行時，每條水平線的對齊位置，單行時會失去功能。
+
+1. flex-start: 對齊容器左側
+
+2. flex-end: 對齊容器右側
+
+3. center: 對齊容器中間
+
+4. space-between: 項目之間的距離相等
+
+5. space-around: 項目周圍的距離相等
+
+#### 項目排序
+
+**flex-direction** 定義項目放置在容器中的方向
+
+1. row: 項目從左到右排序
+
+2. row-reverse: 項目從右到左排序
+
+3. column: 項目從上到下排序
+
+4. column-reverse: 項目從下到上排序
+
+**使用 column 改變項目排序會影響項目對齊方式，justify-content 與 align-items 會顛倒**
+
+**order** 定義項目在容器中的排序權重
+
+預設為 0，可以設定任何正負整數。
+
+#### 項目換行
+
+**flex-wrap** 定義項目在容器中的排列行數
+
+1. nowrap: 項目排列在單行裡
+
+2. wrap: 項目排列在多行裡
+
+3. wrap-reverse: 項目排列在多行裡，但由下排。
+
+#### 組合屬性
+
+**flex-flow** 結合 **flex-direction** 與 **flex-wrap** 用法。
 
 ### display
 
